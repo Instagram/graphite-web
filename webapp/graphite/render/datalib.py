@@ -108,6 +108,8 @@ def fetchData(requestContext, pathExpr):
     (timeInfo, values) = results
     (start, end, step) = timeInfo
 
+    values = [value if value else 0 for value in values] # hack to turn nulls into 0s
+
     series = TimeSeries(node.path, start, end, step, values)
     series.pathExpression = pathExpr #hack to pass expressions through to render functions
     seriesList.append(series)
