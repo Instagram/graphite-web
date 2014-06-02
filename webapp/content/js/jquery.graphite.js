@@ -360,7 +360,7 @@
             var build_url_rawdata = function (series) {
                 var url = url_host + url_path_prefix + '/graphlot/rawdata?';
                 params = build_when();
-                params.push('target=' + series);
+                params.push('target=transformNull(' + series + ')');
                 return url + params.join("&");
             }
 
